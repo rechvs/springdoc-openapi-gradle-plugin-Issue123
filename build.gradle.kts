@@ -20,6 +20,11 @@ dependencies {
   implementation("org.springdoc:springdoc-openapi-ui:1.7.0")
 }
 
+openApi {
+  outputDir = projectDir.resolve("openapi")
+  outputFileName = "my-openapi.json"
+}
+
 tasks {
   test {
     useJUnitPlatform()
@@ -27,9 +32,4 @@ tasks {
   withType(OpenApiGeneratorTask::class.java) {
     dependsOn(clean)
   }
-}
-
-openApi {
-  outputDir = projectDir.resolve("openapi")
-  outputFileName = "my-openapi.json"
 }
